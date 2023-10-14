@@ -119,21 +119,21 @@ export default function Profile({}) {
                         {userData?.first_name} {userData?.last_name}
                     </h3>
                 </div>
-                <div className="text-center mt-2">
+                <div className="text-center mt-2 mb-4">
                     <h3 className="text-xl text-pink font-medium leading-normal mb-1">
                         Username : {userData?.username}
-                        <p class="font-light leading-relaxed text-slate-600 mb-4">
-                            {userData?.user_detail?.bio}
-                        </p>
-                        <button>
-                            <Link
-                                to="/updateProfile"
-                                className="mb-4 w-40 p-2 text-white bg-pink font-inter font-semibold rounded-md"
-                            >
-                                Update Profile
-                            </Link>
-                        </button>
                     </h3>
+                    <p class="font-light leading-relaxed text-slate-600 mb-4">
+                        {userData?.user_detail?.bio}
+                    </p>
+                    <button>
+                        <Link
+                            to="/updateProfile"
+                            className=" w-40 p-2 text-white bg-pink font-inter font-semibold rounded-md"
+                        >
+                            Update Profile
+                        </Link>
+                    </button>
                 </div>
 
                 <Link to="/AddDonation">
