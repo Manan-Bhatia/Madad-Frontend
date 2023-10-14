@@ -115,7 +115,7 @@ export default function Profile({}) {
                     <h3 className="text-4xl text-pink font-bold leading-normal mb-1">
                         {userData.username}
                     </h3>
-                    <button><Link to ="/updateProfile" >Update Profile</Link></button>
+                    <button><Link to ="/updateProfile"  className="w-40 p-2 text-white bg-pink font-inter font-semibold rounded-md" >Update Profile</Link></button>
                 </div>
                 <div class="mt-6 py-6 border-t border-slate-200 text-center">
                     <div class="flex flex-wrap justify-center">
