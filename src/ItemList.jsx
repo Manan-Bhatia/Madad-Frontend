@@ -35,7 +35,7 @@ function ItemList() {
                     searchItems(e.target.value);
                 }}
             />
-            <div className=" flex flex-wrap justify-center">
+            <div className=" flex flex-wrap justify-center gap-3">
                 {matchingItems.length > 1
                     ? data.map((item) => {
                           matchingItems.map((matchingItem) => {
