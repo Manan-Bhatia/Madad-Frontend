@@ -53,7 +53,7 @@ export default function Noti() {
         id = id.slice(13, id.length);
         id = "donations/" + id;
         axios
-            .post(id, { rating: { rating } })
+            .post(id, { rating: rating })
             .then((res) => console.log(res))
             .catch((err) => {
                 console.log(err.response.data.msg);
