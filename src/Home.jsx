@@ -9,7 +9,7 @@ export default function Home() {
     let [data, setData] = useState([]);
     useEffect(() => {
         axios
-            .get("/donations/")
+            .get("/donations/topdonations")
             .then((res) => {
                 setData(res.data);
             })
@@ -75,7 +75,7 @@ export default function Home() {
                     id="name"
                     className="p-2 flex flex-wrap gap-5 justify-center lg:px-8"
                 >
-                    {data.slice(0, 4).map((item) => (
+                    {data.map((item) => (
                         <Card key={item.d_id} {...item} />
                     ))}
                 </div>
