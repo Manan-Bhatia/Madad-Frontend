@@ -177,7 +177,7 @@ function App() {
                         </li>
                     )}
                 </ul>
-            </nav>
+            </nav>   
             <main className="container mx-auto py-4">
                 <Routes>
                     <Route path="/" element={<Home />} />
