@@ -39,15 +39,27 @@ export default function Noti() {
             })
             .catch((err) => console.log(err));
     };
-
+    let [err, setErr] = useState("");
+    useEffect(() => {
+        let timer;
+        if (err) {
+            timer = setTimeout(() => {
+                setErr("");
+            }, 3000);
+        }
+        return () => clearTimeout(timer);
+    }, [err]);
     const handleRateClick = (id) => {
         id = id.slice(13, id.length);
         id = "donations/" + id;
         axios
             .post(id, { rating: { rating } })
             .then((res) => console.log(res))
-            .catch((err) => console.log(err));
-            setRating(0);
+            .catch((err) => {
+                console.log(err.response.data.msg);
+                setErr(err.response.data.msg);
+            });
+        setRating(0);
     };
     const [modalIsOpen, setModalIsOpen] = useState(false);
     function openModal() {
@@ -107,7 +119,7 @@ export default function Noti() {
                                                 style={{
                                                     overlay: {
                                                         backgroundColor:
-                                                            "rgba(0, 0, 0, 0.5)",
+                                                            "rgba(0, 0, 0, .25)",
                                                     },
                                                     content: {
                                                         backgroundColor: "#fff",
@@ -174,6 +186,11 @@ export default function Noti() {
                         )}
                     </div>
                 ))}
+                {err && (
+                    <p className="bg-red text-white p-4 rounded-md capitalize">
+                        {err}
+                    </p>
+                )}
             </div>
         </>
     );

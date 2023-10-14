@@ -11,6 +11,7 @@ import Claim from "./Claim";
 import Noti from "./notification";
 import AddDonation from "./AddDonation";
 import ItemList from "./ItemList";
+import Updateprofile from "./updateprofile";
 
 function App() {
     const navigate = useNavigate();
@@ -24,17 +25,19 @@ function App() {
     };
     // Check if the user is logged in
     if (localStorage.getItem("token")) {
-        setAuthToken(localStorage.getItem("token"))
-        axios.get("/accounts/profile").then((res) => {
-            console.log(res)
-        }).catch((err) => {
-            if(err.response.status === 401)
-            {
-                localStorage.removeItem("token");
-                setAuthToken(null);
-                navigate("/");
-            }
-        })
+        setAuthToken(localStorage.getItem("token"));
+        axios
+            .get("/accounts/profile")
+            .then((res) => {
+                console.log(res);
+            })
+            .catch((err) => {
+                if (err.response.status === 401) {
+                    localStorage.removeItem("token");
+                    setAuthToken(null);
+                    navigate("/");
+                }
+            });
     }
 
     const [isVisibile, setIsVisible] = React.useState(false);
@@ -177,7 +180,7 @@ function App() {
                         </li>
                     )}
                 </ul>
-            </nav>   
+            </nav>
             <main className="container mx-auto py-4">
                 <Routes>
                     <Route path="/" element={<Home />} />
@@ -196,6 +199,7 @@ function App() {
                     <Route path="/notifications" element={<Noti />} />
                     <Route path="/AddDonation" element={<AddDonation />} />
                     <Route path="/donationList" element={<ItemList />} />
+                    <Route path="/updateProfile" element={<Updateprofile />} />
                 </Routes>
             </main>
         </>
