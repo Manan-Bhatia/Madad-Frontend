@@ -128,7 +128,7 @@ export default function Profile({}) {
                         <button>
                             <Link
                                 to="/updateProfile"
-                                className="w-40 p-2 text-white bg-pink font-inter font-semibold rounded-md"
+                                className="mb-4 w-40 p-2 text-white bg-pink font-inter font-semibold rounded-md"
                             >
                                 Update Profile
                             </Link>
