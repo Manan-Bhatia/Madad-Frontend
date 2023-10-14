@@ -10,6 +10,7 @@ import UserProfile from "./userProfile";
 import Claim from "./Claim";
 import Noti from "./notification";
 import AddDonation from "./AddDonation";
+import ItemList from "./ItemList";
 
 function App() {
     const navigate = useNavigate();
@@ -177,7 +178,7 @@ function App() {
                     )}
                 </ul>
             </nav>
-            <main className="container mx-auto">
+            <main className="container mx-auto py-4">
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/login" element={<Login />} />
@@ -194,6 +195,7 @@ function App() {
                     <Route path="/claim/:donationID" element={<Claim />} />
                     <Route path="/notifications" element={<Noti />} />
                     <Route path="/AddDonation" element={<AddDonation />} />
+                    <Route path="/donationList" element={<ItemList />} />
                 </Routes>
             </main>
         </>

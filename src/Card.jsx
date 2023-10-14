@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "./api/axios";
-import {LazyLoadImage} from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css'
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 const UserProfileURL = "/accounts/user/";
 
 export default function Card({
@@ -37,7 +37,7 @@ export default function Card({
 
     return (
         <>
-            <div className="w-72 p-3 shadow-2xl bg-white rounded-lg  lg:w- ">
+            <div className="w-72 p-3 shadow-2xl bg-white rounded-lg">
                 <a href="#">
                     <LazyLoadImage
                         src={`https://shareaid.pythonanywhere.com${item_picture}`}
@@ -52,26 +52,22 @@ export default function Card({
                 </a>
                 <div className="p-2">
                     <a href="#">
-                        <h5 className="mb-2 font-poppins text-2xl font-bold tracking-tight text-blue">
+                        <h5 className="mb-2 font-poppins text-2xl font-bold tracking-tight text-blue truncate">
                             {item_name}
                         </h5>
                     </a>
-                    <p className="font-inter ">{item_desc}</p>
-                    <p className="font-poppins font-medium ">
+                    <p className="font-inter truncate">{item_desc}</p>
+                    <p className="font-poppins font-medium truncate">
                         By:{" "}
                         <Link to={`/userProfile/${createdby}`}>
                             @{createdbyUser}
                         </Link>
                     </p>
-                    <p className="text-md font-light"> {Location}</p>
+                    <p className="text-md font-light truncate"> {Location}</p>
                 </div>
 
                 <div>
-                    {
-                        showingOnProfile ? null : "" // <Link to={`/userProfile/${createdby}`}>
-                        //     {createdbyUser}
-                        // </Link>
-                    }
+                    {showingOnProfile ? null : ""}
                     {myProfile ? null : (
                         <>
                             {localStorage.getItem("token") ? (

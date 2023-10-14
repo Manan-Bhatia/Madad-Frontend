@@ -6,12 +6,6 @@ import Card from "./Card";
 import { Link } from "react-router-dom";
 
 export default function Home() {
-    const [visibleCards, setVisibleCards] = useState(4);
-
-    const handleSeeMoreClick = () => {
-        setVisibleCards((prevVisibleCards) => prevVisibleCards + 4);
-    };
-
     let [data, setData] = useState([]);
     useEffect(() => {
         axios
@@ -81,19 +75,14 @@ export default function Home() {
                     id="name"
                     className="p-2 flex flex-wrap gap-5 justify-center lg:px-8"
                 >
-                    {data.slice(0, visibleCards).map((item) => (
+                    {data.slice(0, 4).map((item) => (
                         <Card key={item.d_id} {...item} />
                     ))}
                 </div>
 
-                {visibleCards < data.length && (
-                    <button
-                        className="bg-blue-600 w-52 mx-auto px-5 py-2 text-white bg-blue font-inter font-semibold rounded-md text-md cursor-pointer lg:text-lg "
-                        onClick={handleSeeMoreClick}
-                    >
-                        See More
-                    </button>
-                )}
+                <button className="bg-blue-600 w-52 mx-auto px-5 py-2 text-white bg-blue font-inter font-semibold rounded-md text-md cursor-pointer lg:text-lg ">
+                    <Link to="/donationList">View More</Link>
+                </button>
             </div>
         </>
     );
