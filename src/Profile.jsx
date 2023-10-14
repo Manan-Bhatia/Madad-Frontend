@@ -111,9 +111,15 @@ export default function Profile({}) {
                         </div>
                     </div>
                 </div>
+                
                 <div className="text-center mt-2">
                     <h3 className="text-4xl text-pink font-bold leading-normal mb-1">
-                        {userData.username}
+                        {userData.firstname} {userData.lastname}
+                    </h3>
+                </div>
+                <div className="text-center mt-2">
+                    <h3 className="text-xl text-pink font-medium leading-normal mb-1">
+                        Username : {userData.username}
                     </h3>
                     <button><Link to ="/updateProfile"  className="w-40 p-2 text-white bg-pink font-inter font-semibold rounded-md" >Update Profile</Link></button>
                 </div>
