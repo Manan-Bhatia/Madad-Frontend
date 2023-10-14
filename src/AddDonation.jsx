@@ -39,7 +39,7 @@ export default function AddDonation() {
                 setMessage({ message: "Donation added successfully", eos: 1 });
                 setTimeout(() => {
                   navigate("/profile");
-                },5000)
+                },1000)
             })
             .catch(() => {
                 setSubmitting(false);

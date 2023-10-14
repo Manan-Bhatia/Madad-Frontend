@@ -1,11 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "./api/axios";
 const CLAIM_URL = "/donations/claim/";
 import { useParams } from "react-router-dom";
 
 export default function App() {
+  const navigate = useNavigate();
   if (localStorage.getItem("token")) {
     axios.defaults.headers.common[
       "Authorization"
@@ -29,6 +31,8 @@ export default function App() {
       .then((res) => {
         console.log(res);
         alert("Claim request sent");
+        navigate("/profile");
+
       })
       .catch((err) => console.log(err));
     console.log(formData);
