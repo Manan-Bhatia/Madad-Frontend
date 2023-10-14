@@ -31,7 +31,7 @@ export default function Profile({}) {
                 axios
                     .get(UserDontaionsURL + userID)
                     .then((res) => {
-                        console.log(res.data);
+                        // console.log(res.data);
                         setUserDonationItems(res.data);
                     })
                     .catch((err) => console.log(err));
@@ -44,10 +44,9 @@ export default function Profile({}) {
     const handleSeeMoreClick = () => {
         setVisibleCards((prevVisibleCards) => prevVisibleCards + 4);
     };
-
+    console.log(userData);
     return (
         <div className="">
-            
             {/* <h1>My Profile </h1>
             {userData.profile_picture == null ? (
                 <img
@@ -67,7 +66,7 @@ export default function Profile({}) {
                 <div className="flex flex-wrap justify-center">
                     <div className="w-full flex justify-center">
                         <div className="relative">
-                            {userData.profile_picture == null ? (
+                            {userData?.user_detail?.profile_picture == null ? (
                                 <img
                                     src="https://www.w3schools.com/howto/img_avatar.png"
                                     alt="Avatar"
@@ -75,7 +74,10 @@ export default function Profile({}) {
                                 />
                             ) : (
                                 <img
-                                    src={userData.profile_picture}
+                                    src={
+                                        "https://shareaid.pythonanywhere.com/" +
+                                        `${userData.user_detail.profile_picture}`
+                                    }
                                     alt="Avatar"
                                     className="shadow-xl rounded-full align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-[150px]"
                                 />
@@ -102,8 +104,8 @@ export default function Profile({}) {
                                     </span>
                                 )} */}
                                 <span className="text-2xl font-bold block uppercase tracking-wide text-pink">
-                                        5/10
-                                    </span>
+                                    {userData?.user_detail?.rating}/5
+                                </span>
                                 <span className="text-md text-blue">
                                     AVG Rating
                                 </span>
@@ -111,30 +113,34 @@ export default function Profile({}) {
                         </div>
                     </div>
                 </div>
-                
+
                 <div className="text-center mt-2">
                     <h3 className="text-4xl text-pink font-bold leading-normal mb-1">
-                        {userData.firstname} {userData.lastname}
+                        {userData?.first_name} {userData?.last_name}
                     </h3>
                 </div>
                 <div className="text-center mt-2">
                     <h3 className="text-xl text-pink font-medium leading-normal mb-1">
-                        Username : {userData.username}
+                        Username : {userData?.username}
+                        <p class="font-light leading-relaxed text-slate-600 mb-4">
+                            {userData?.user_detail?.bio}
+                        </p>
+                        <button>
+                            <Link
+                                to="/updateProfile"
+                                className="mb-4 w-40 p-2 text-white bg-pink font-inter font-semibold rounded-md"
+                            >
+                                Update Profile
+                            </Link>
+                        </button>
                     </h3>
-                    <button><Link to ="/updateProfile"  className="w-40 p-2 text-white bg-pink font-inter font-semibold rounded-md" >Update Profile</Link></button>
                 </div>
-                <div class="mt-6 py-6 border-t border-slate-200 text-center">
-                    <div class="flex flex-wrap justify-center">
-                        <div class="w-full px-4">
-                            <p class="font-light leading-relaxed text-slate-600 mb-4">
-                                {userData.bio}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <Link to = "/AddDonation">
-                <button className="w-40 py-2 text-white bg-pink font-inter font-semibold rounded-md">Add donation</button>
-            </Link>
+
+                <Link to="/AddDonation">
+                    <button className="w-40 py-2 text-white bg-pink font-inter font-semibold rounded-md">
+                        Add donation
+                    </button>
+                </Link>
             </div>
 
             <div
