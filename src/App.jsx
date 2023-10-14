@@ -45,7 +45,7 @@ function App() {
         <>
             <nav className="flex justify-between px-5 py-5 items-center lg:px-20">
                 <h1 className="font-bold font-poppins text-pink text-2xl lg:text-4xl">
-                    <Link to="/">ShareAid</Link>
+                    <Link to="/">Madad</Link>
                 </h1>
                 <ul onClick={handleClick} className=" relative lg:hidden">
                     <button

@@ -7,7 +7,7 @@
     box-sizing: border-box;
     }
     .wave {
-        background: rgb(255 153 153/ 50%);
+        background: rgb(0,0,255/ 50%);
         border-radius: 1000% 1000% 0 0;
         position: fixed;
         width: 200%;
@@ -55,7 +55,7 @@
     }
     @media(width>768px){
         .wave {
-            background: rgb(255 153 153/ 100%);
+            background: rgb(176 224 230/ 100%);
             border-radius: 1000% 1000% 0 0;
             position: fixed;
             width: 220%;

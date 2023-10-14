@@ -54,10 +54,10 @@ export default function Home() {
             </div>
             <div className="px-8 mb-9 md:py-4">
                 <h2 className="py-4 text-3xl font-poppins text-pink md:text-4xl">
-                    Why ShareAid ?
+                    Why Madad ?
                 </h2>
                 <p className="font-Inter text-blue font-semibold text-md leading-[2rem] md:text-xl ">
-                    Join our online community at ShareAid and be a part of the
+                    Join our online community at Madad and be a part of the
                     sustainable revolution! By donating and receiving old items,
                     you can actively contribute to reducing waste, promoting
                     sustainability, and protecting the environment.Together,
